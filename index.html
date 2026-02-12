@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#5D4037" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="/manifest.json" />
+    <title>کلامِ رضا - کلاؤڈ ایڈیشن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --urdu-font: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', 'serif';
+      }
+      body {
+        font-family: var(--urdu-font);
+        background-color: #F5F5DC;
+        /* Enhanced Islamic Pattern */
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235D4037' fill-opacity='0.04'%3E%3Cpath d='M40 0l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z' /%3E%3Cpath d='M0 40l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z' /%3E%3Cpath d='M80 40l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z' /%3E%3Cpath d='M40 80l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        -webkit-tap-highlight-color: transparent;
+        color: #1A0F0D;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      .urdu-text {
+        font-family: var(--urdu-font) !important;
+        line-height: 2.2;
+      }
+      .page-transition {
+        animation: slideUpFade 0.4s ease-out both;
+      }
+      @keyframes slideUpFade {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .loading-spinner {
+        border: 3px solid rgba(93, 64, 55, 0.1);
+        border-top: 3px solid #5D4037;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/database": "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "url": "https://esm.sh/url@^0.11.4",
+    "firebase/": "https://esm.sh/firebase@^12.8.0/",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "path": "https://esm.sh/path@^0.12.7"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
