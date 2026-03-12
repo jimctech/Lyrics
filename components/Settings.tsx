@@ -25,6 +25,12 @@ export const Settings: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
     await db.saveSettings(user.id, newSettings);
   };
 
+  const setPreset = async (bg: string, text: string) => {
+    const newSettings = { ...settings, backgroundColor: bg, textColor: text };
+    setSettings(newSettings);
+    await db.saveSettings(user.id, newSettings);
+  };
+
   const handleUpdateProfile = async (e: React.FormEvent) => {
     e.preventDefault();
     await db.updateUser(user.id, user);
@@ -72,6 +78,21 @@ export const Settings: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
 
       {/* Visual Settings Section */}
       <section className="space-y-6">
+        <div className="flex gap-3 justify-center mb-6">
+           <button 
+             onClick={() => setPreset('#FDFCF0', '#1A0F0D')}
+             className={`flex-1 py-3 rounded-2xl border-2 transition-all urdu-text font-bold ${settings.backgroundColor === '#FDFCF0' ? 'border-[#064E3B] bg-[#FDFCF0] text-[#064E3B]' : 'border-gray-100 bg-gray-50 text-gray-400'}`}
+           >
+             کلاسک موڈ
+           </button>
+           <button 
+             onClick={() => setPreset('#1A0F0D', '#FDFCF0')}
+             className={`flex-1 py-3 rounded-2xl border-2 transition-all urdu-text font-bold ${settings.backgroundColor === '#1A0F0D' ? 'border-[#D4AF37] bg-[#1A0F0D] text-[#D4AF37]' : 'border-gray-100 bg-gray-50 text-gray-400'}`}
+           >
+             نائٹ موڈ
+           </button>
+        </div>
+
         <div>
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-sm font-bold opacity-40 uppercase tracking-widest">تحریر کا سائز</h3>

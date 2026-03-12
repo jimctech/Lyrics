@@ -2,10 +2,12 @@
 import { Category, SubCategory, Lyric } from './types';
 
 export const COLORS = {
-  CREAM: '#F5F5DC',
-  BROWN: '#5D4037',
-  GREEN: '#2E7D32',
-  RED: '#C62828',
+  CREAM: '#FDFCF0',
+  BROWN: '#3E2723',
+  GREEN: '#064E3B', // Deep Emerald
+  GOLD: '#D4AF37',  // Antique Gold
+  RED: '#8B0000',   // Deep Crimson
+  BORDER: 'rgba(212, 175, 55, 0.3)',
 };
 
 export const INITIAL_CATEGORIES: Category[] = [
@@ -66,14 +68,12 @@ const generateLyrics = (): Lyric[] => {
   
   INITIAL_SUBCATEGORIES.forEach(sub => {
     for (let i = 1; i <= 10; i++) {
-      const isFirst = i === 1;
       lyrics.push({
         id: `l-${sub.id}-${i}`,
         subCategoryId: sub.id,
         serial: i,
         title: `${sub.name} - کلام ${i}`,
         content: `بند اول:\nتیری قدرت کے نظارے ہیں زمانے بھر میں\nتیری رحمت کے سہارے ہیں زمانے بھر میں\n\nبند دوم:\nکوئی تجھ سا نہیں اے مالکِ ارض و سما\nتیرے قبضے میں ہے ہر ذرہ و ہر ایک فضا\n\nبند سوم:\nتیرے در کا میں گدا ہوں مری بگڑی بنا دے تو\nاپنے فضل و کرم سے میرا دامن بھر دے تو\n\nبند چہارم:\nصبح اٹھ کر تیرا ہی نام لبوں پر آئے\nشام ڈھلے بھی تری یاد ہی دل کو بھائے\n\nبند پنجم:\nذکر سے تیرے ہی ملتی ہے سکونِِ قلب کو راحت\nتیری ہی بندگی ہے مومن کی اصل سعادت\n\nبند ششم:\nمجھ گنہگار کو بھی اپنا بنا لے میرے مولیٰ\nخواب میں اپنا بھی جلوہ تو دکھا دے میرے مولیٰ`,
-        // Assign sample audio to the first 2 lyrics of each sub-category for testing
         audioUrl: i <= 2 ? 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' : undefined
       });
     }
