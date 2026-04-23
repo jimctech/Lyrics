@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "globalSettings": {
+      ".read": "true",
+      ".write": "auth != null && auth.token.email === 'info@jimcstudio.com'"
+    },
+    "profiles": {
+      ".read": "auth != null && auth.token.email === 'info@jimcstudio.com'",
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || auth.token.email === 'info@jimcstudio.com')",
+        ".write": "auth != null && (auth.uid === $uid || auth.token.email === 'info@jimcstudio.com')"
+      }
+    },
+    "users": {
+      ".read": "auth != null && auth.token.email === 'info@jimcstudio.com'",
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || auth.token.email === 'info@jimcstudio.com')",
+        ".write": "auth != null && (auth.uid === $uid || auth.token.email === 'info@jimcstudio.com')"
+      }
+    }
+  }
+}

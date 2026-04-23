@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 // Configuration provided by the user
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBjs7-NTQIL7ESTp73SZlzRNyUW0fdZuzA",
   authDomain: "urdu-d8113.firebaseapp.com",
   projectId: "urdu-d8113",

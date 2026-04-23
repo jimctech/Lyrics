@@ -107,27 +107,37 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
     const path = location.pathname;
     const fetchTitle = async () => {
-      if (path.startsWith('/lyric/')) {
-        const id = path.split('/').pop();
-        const lyrics = await db.getLyrics(user.id);
-        const lyric = lyrics.find(l => l.id === id);
-        if (lyric) setCurrentTitle(lyric.title);
-      } else if (path.startsWith('/category/')) {
-        const id = path.split('/').pop();
-        const cats = await db.getCategories(user.id);
-        const cat = cats.find(c => c.id === id);
-        if (cat) setCurrentTitle(cat.name);
-      } else if (path.startsWith('/subcategory/')) {
-        const id = path.split('/').pop();
-        const subs = await db.getSubCategories(user.id);
-        const sub = subs.find(s => s.id === id);
-        if (sub) setCurrentTitle(sub.name);
-      } else if (path === '/categories') {
-         setCurrentTitle("فہرست عنوانات");
-      } else if (path === '/add-lyric') {
-         setCurrentTitle("کلام شامل کریں");
-      } else {
-        setCurrentTitle("");
+      try {
+        if (path.startsWith('/lyric/')) {
+          const id = path.split('/').pop();
+          const lyrics = await db.getLyrics(user.id);
+          const lyric = lyrics.find(l => l.id === id);
+          if (lyric) setCurrentTitle(lyric.title);
+        } else if (path.startsWith('/category/')) {
+          const id = path.split('/').pop();
+          const cats = await db.getCategories(user.id);
+          const cat = cats.find(c => c.id === id);
+          if (cat) setCurrentTitle(cat.name);
+        } else if (path.startsWith('/subcategory/')) {
+          const id = path.split('/').pop();
+          const subs = await db.getSubCategories(user.id);
+          const sub = subs.find(s => s.id === id);
+          if (sub) setCurrentTitle(sub.name);
+        } else if (path === '/categories') {
+           setCurrentTitle("فہرست عنوانات");
+        } else if (path === '/add-lyric') {
+           setCurrentTitle("کلام شامل کریں");
+        } else if (path === '/admin') {
+           setCurrentTitle("ایڈمن ڈیش بورڈ");
+        } else if (path === '/settings') {
+           setCurrentTitle("ترتیبات");
+        } else if (path === '/') {
+          setCurrentTitle("کلامِ رضا");
+        } else {
+          setCurrentTitle("کلامِ رضا");
+        }
+      } catch (err) {
+        setCurrentTitle("کلامِ رضا");
       }
     };
     fetchTitle();

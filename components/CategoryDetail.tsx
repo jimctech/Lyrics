@@ -35,9 +35,14 @@ export const CategoryDetail: React.FC = () => {
   const handleAddSub = async () => {
     const user = db.getCurrentUser();
     if (!user || !id || !newSubName.trim()) return;
-    await db.addSubCategory(user.id, id, newSubName);
-    setNewSubName('');
-    loadData();
+    try {
+      await db.addSubCategory(user.id, id, newSubName);
+      setNewSubName('');
+      await loadData();
+    } catch (e) {
+      console.error(e);
+      alert("محفوظ کرنے میں غلطی ہوئی۔");
+    }
   };
 
   if (!category) return <div className="text-center p-10 urdu-text">عنوان نہیں ملا</div>;
